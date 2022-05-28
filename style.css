@@ -2,7 +2,7 @@ section{
     display: inline;
    
 }
-h1{
+#answer{
     text-align: center;
 }
 #rgb-color{
@@ -53,5 +53,9 @@ h1{
 }
 body{
     background-color: aqua;
+}
+#botao{
+    text-align: center;
+    margin-top: 20px;
 }
 
