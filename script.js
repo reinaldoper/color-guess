@@ -13,7 +13,6 @@ const acertou1 = document.createElement("h2");
 acertou1.id = "rgb-color";
 acertou.appendChild(acertou1);
 const pegaH2 = document.getElementById("rgb-color");
-pegaH2.innerHTML = randomRgb();
 const answerh1 = document.querySelector("#answer");
 answerh1.innerHTML = "Escolha uma cor";
 
@@ -41,8 +40,22 @@ function geradorBackground() {
 var randomValue = a[Math.floor(a.length * Math.random())];
 
 
+  const letters = [a, b , c, d, e ,f];
+  let color = '';
+  
+  
+    color = letters[Math.floor(Math.random() * 6)];
+  
+    
+    pegaH2.innerHTML = color;
+ console.log(color);
+
+
 };
 geradorBackground();
+
+
+
 
 
 
