@@ -1,124 +1,186 @@
-
-
-
 //gerador de RGB aleatório principal
 
-function randomRgb(){
-  const r = Math.floor((Math.random()* 255));
-  const g = Math.floor((Math.random()* 255));
-  const b = Math.floor((Math.random()* 255));
-  return `(${r}, `+`${g}, `+`${b})`;
+function randomRgb() {
+  const r = Math.floor((Math.random() * 255));
+  const g = Math.floor((Math.random() * 255));
+  const b = Math.floor((Math.random() * 255));
+  return "rgb(" + r + ", " + g + ", " + b + ")";
 }
 
 //gerador de RGB aleatório
+const acertou = document.querySelector("header");
+const acertou1 = document.createElement("h2");
+acertou1.id = "rgb-color";
+acertou.appendChild(acertou1);
+const pegaH2 = document.getElementById("rgb-color");
+pegaH2.innerHTML = randomRgb();
+const answerh1 = document.querySelector("#answer");
+answerh1.innerHTML = "Escolha uma cor";
 
-const criateRgb = document.querySelector("#rgb-color");
-const adicionaRgb = document.createElement("h3");
-adicionaRgb.innerHTML = randomRgb();
-criateRgb.appendChild(adicionaRgb);
-
-const geraRGB = "rgb"+randomRgb();
 
 
-function randomColor() {
-    const hex = (Math.random()*0xFFFFFF<<0).toString(16);
-    return `#${hex}`;
-  }
-    let x = randomColor()
-    let circulo1 = document.querySelector("#circulo1");
-    circulo1.style.backgroundColor = x;
-    
-    let y = randomColor()
-    let circulo2 = document.querySelector("#circulo2");
-    circulo2.style.backgroundColor = y;
+//função gera cores das bolas.
 
-    let z = randomColor()
-    let circulo3 = document.querySelector("#circulo3");
-    circulo3.style.backgroundColor = z;
+function geradorBackground() {
+  let a = randomRgb();
+  let b = randomRgb();
+  let c = randomRgb();
+  let d = randomRgb();
+  let e = randomRgb();
+  let f = randomRgb();
 
-    let b = randomColor()
-    let circulo4 = document.querySelector("#circulo4");
-    circulo4.style.backgroundColor = b;
+  document.querySelector("#sessao").children[0].style.backgroundColor = a;
+  document.querySelector("#sessao").children[1].style.backgroundColor = b;
+  document.querySelector("#sessao").children[2].style.backgroundColor = c;
+  document.querySelector("#sessao").children[3].style.backgroundColor = d;
+  document.querySelector("#sessao").children[4].style.backgroundColor = e;
+  document.querySelector("#sessao").children[5].style.backgroundColor = f;
 
-    let a = randomColor()
-    let circulo5 = document.querySelector("#circulo5");
-    circulo5.style.backgroundColor = a;
 
-    let c = randomColor()
-    let circulo6 = document.querySelector("#circulo6");
-    circulo6.style.backgroundColor = c;
+  var rgbRandom = [a, b, c, d, e, f];
+var randomValue = a[Math.floor(a.length * Math.random())];
 
-    //requisito 5
 
-  const acertou = document.querySelector("#answer");
-  const cor1 = document.querySelector("#circulo1");
-  const cor2 = document.querySelector("#circulo2");
-  const cor3 = document.querySelector("#circulo3");
-  const cor4 = document.querySelector("#circulo4");
-  const cor5 = document.querySelector("#circulo5");
-  const cor6 = document.querySelector("#circulo6");
-  const rgbColor = document.querySelector("#rgb-color");
-  
-  cor1.addEventListener("click", function(){
-    if(cor1.style.backgroundColor == geraRGB){
-      acertou.innerHTML = "Acertou!";
+};
+geradorBackground();
+
+
+
+//requisito 5
+
+
+/* let ball1 = document.querySelector("#circulo1");
+let ball2 = document.querySelector("#circulo2");
+let ball3 = document.querySelector("#circulo3");
+let ball4 = document.querySelector("#circulo4");
+let ball5 = document.querySelector("#circulo5");
+let ball6 = document.querySelector("#circulo6"); */
+/* const jogarVariavel = document.getElementById("#rgb-color"); */
+/* const rgbColor = document.getElementById("#rgb-color"); */
+/* const color1 = rgbColor.innerHTML */
+/* console.log(acertou); */
+
+//Pegar target do click das bolas
+
+
+function checkColor(event){
+  const select = event.target.style.backgroundColor;
+  const rgb = pegaH2.innerHTML;
+  let score = document.getElementById("score").innerHTML;
+  const text = document.getElementById("answer");
+  console.log(select);
+  console.log(rgb);
+  if(select === rgb){
+    text.innerHTML = "Acertou!";
+    score = parseInt(score, 10) + 3;
+    document.getElementById("score").innerHTML = score;
   }else{
-    
-    acertou.innerHTML = "Errou! Tente novamente!"; 
+    text.innerHTML = "Errou! Tente novamente!";
   }
-  });
+};
+const sessao = document.querySelector("#sessao");
+sessao.addEventListener("click", checkColor);
 
-  cor2.addEventListener("click", function(){
-    if(cor2.style.backgroundColor == geraRGB){
-      /* console.log(cor1); */
-      acertou.innerHTML = "Acertou!";
-  }else{
-    acertou.innerHTML = "Errou! Tente novamente!"; 
+
+
+
+
+
+
+
+
+//clica bola 1
+/* const scoreCont = document.querySelector("#score");
+var contador = 0;
+ball1.addEventListener("click", function (event) {
+  let color = event.target.style.backgroundColor;
+  console.log(color);
+  console.log(pegaH2.innerHTML);
+  if (color != pegaH2.innerHTML) {
+    answerh1.innerHTML = "Errou! Tente novamente!";
+  } else {
+    contador += 3;
+    scoreCont.innerHTML = contador;
+    answerh1.innerHTML = "Acertou!";
   }
-  });
+}); */
 
-cor3.addEventListener("click", function(){
-  if(cor3.style.backgroundColor == geraRGB){
-    /* console.log(cor1); */
-    acertou.innerHTML = "Acertou!";
-}else{
-  acertou.innerHTML = "Errou! Tente novamente!"; 
-}
-});
+//clica bola 2
 
-cor4.addEventListener("click", function(){
-  if(cor4.style.backgroundColor == geraRGB){
-    /* console.log(cor1); */
-    acertou.innerHTML = "Acertou!";
-}else{
-  acertou.innerHTML = "Errou! Tente novamente!"; 
-}
-});
-
-cor5.addEventListener("click", function(){
-  if(cor5.style.backgroundColor == geraRGB){
-    /* console.log(cor1); */
-    acertou.innerHTML = "Acertou!";
-}else{
-  acertou.innerHTML = "Errou! Tente novamente!"; 
-}
-});
+       /*  ball2.addEventListener("click", function (event) {
+          let color1 = event.target.style.backgroundColor;
+          if (color1 != pegaH2.innerHTML) {
+            answerh1.innerHTML = "Errou! Tente novamente!";
+          } else {
+            contador += 3;
+            scoreCont.innerHTML = contador;
+            answerh1.innerHTML = "Acertou!";
+          }
+        }); */
 
 
-cor6.addEventListener("click", function(){
-  if(cor6.style.backgroundColor == geraRGB){
-    /* console.log(cor1); */
-    acertou.innerHTML = "Acertou!";
-}else{
-  acertou.innerHTML = "Errou! Tente novamente!"; 
-}
-});
+//clica bola 3
+
+/* ball3.addEventListener("click", function (event) {
+  let color2 = event.target.style.backgroundColor;
+  if (color2 != pegaH2.innerHTML) {
+    answerh1.innerHTML = "Errou! Tente novamente!";
+  } else {
+    contador += 3;
+    scoreCont.innerHTML = contador;
+    answerh1.innerHTML = "Acertou!";
+
+  }
+}); */
+
+//clica bola 4
+
+/* ball4.addEventListener("click", function (event) {
+  let color3 = event.target.style.backgroundColor;
+  if (color3 != pegaH2.innerHTML) {
+    answerh1.innerHTML = "Errou! Tente novamente!";
+  } else {
+    contador += 3;
+    scoreCont.innerHTML = contador;
+    answerh1.innerHTML = "Acertou!";
+
+  }
+}); */
+
+//clica bola 5
+
+/* ball5.addEventListener("click", function (event) {
+  let color4 = event.target.style.backgroundColor;
+  if (color4 != pegaH2.innerHTML) {
+    answerh1.innerHTML = "Errou! Tente novamente!";
+  } else {
+    contador += 3;
+    scoreCont.innerHTML = contador;
+    answerh1.innerHTML = "Acertou!";
+
+  }
+}); */
+
+
+//clica bola 6
+
+/* ball6.addEventListener("click", function (event) {
+  let color5 = event.target.style.backgroundColor;
+  if (color5 != pegaH2.innerHTML) {
+    answerh1.innerHTML = "Errou! Tente novamente!";
+  } else {
+    contador += 3;
+    scoreCont.innerHTML = contador;
+    answerh1.innerHTML = "Acertou!";
+  }
+}); */
 
 
 //botão reset
 
 const botun = document.querySelector("#reset-game");
-botun.addEventListener("click", function(){
-  location.reload();
-})
-
+botun.addEventListener("click", function () {
+  answerh1.innerHTML = "Escolha uma cor";
+  geradorBackground();
+  pegaH2.innerHTML = randomRgb();
+});

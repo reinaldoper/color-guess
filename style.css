@@ -1,6 +1,7 @@
-section{
-    display: inline;
-   
+#sessao{
+    display: inline-flex;
+   height: 100px;
+   text-align: center;
 }
 #answer{
     text-align: center;
@@ -8,54 +9,28 @@ section{
 #rgb-color{
     text-align: center;
 }
-#circulo1{
+.ball{
+    border: 1px solid black;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    padding: 10px 10px 10px 10px;
+    margin-left: 110px;
     margin-top: 250px;
-    width: 30px;
-    height: 30px;
-    margin-left: 430px;
-    border-radius: 100%;
-    border: 1px solid black;
+
 }
-#circulo2{
-    width: 30px;
-    height: 30px;
-    margin-left: 40px;
-    border-radius: 100%;
-    border: 1px solid black;
-}
-#circulo3{
-    width: 30px;
-    height: 30px;
-    margin-left: 40px;
-    border-radius: 100%;
-    border: 1px solid black;
-}
-#circulo4{
-    width: 30px;
-    height: 30px;
-    margin-left: 40px;
-    border-radius: 100%;
-    border: 1px solid black;
-}
-#circulo5{
-    width: 30px;
-    height: 30px;
-    margin-left: 40px;
-    border-radius: 100%;
-    border: 1px solid black;
-}
-#circulo6{
-    width: 30px;
-    height: 30px;
-    margin-left: 40px;
-    border-radius: 100%;
-    border: 1px solid black;
-}
+
 body{
     background-color: aqua;
 }
 #botao{
     text-align: center;
     margin-top: 20px;
+}
+#placar{
+    text-align: center;
+}
+.ball{
+    list-style: none;
 }
 
