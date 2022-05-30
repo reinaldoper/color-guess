@@ -36,8 +36,7 @@ function geradorBackground() {
   document.querySelector("#sessao").children[5].style.backgroundColor = f;
 
 
-  var rgbRandom = [a, b, c, d, e, f];
-var randomValue = a[Math.floor(a.length * Math.random())];
+
 
 
   const letters = [a, b , c, d, e ,f];
@@ -195,5 +194,4 @@ const botun = document.querySelector("#reset-game");
 botun.addEventListener("click", function () {
   answerh1.innerHTML = "Escolha uma cor";
   geradorBackground();
-  pegaH2.innerHTML = randomRgb();
 });
